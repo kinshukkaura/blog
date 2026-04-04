@@ -1,0 +1,78 @@
+{{ define "main" }}
+
+<div class="b-date-wrap" style="margin-top:0.5rem">
+  <span class="b-date">{{ .Title }}</span>
+  <div class="b-date-rule"></div>
+</div>
+<p class="tag-page-count-label">
+  {{ len .Pages }} {{ if eq (len .Pages) 1 }}entry{{ else }}entries{{ end }}
+</p>
+
+{{ $prevMonth := "" }}
+{{ range .Pages.ByDate.Reverse }}
+  {{ $thisMonth := .Date.Format "January 2006" }}
+
+  {{ if ne $thisMonth $prevMonth }}
+    <div class="b-date-wrap" style="margin-top:1.5rem">
+      <span class="b-date">{{ $thisMonth }}</span>
+      <div class="b-date-rule"></div>
+    </div>
+    {{ $prevMonth = $thisMonth }}
+  {{ end }}
+
+  {{ if eq .Type "posts" }}
+    <article class="b-entry">
+      <h2 class="b-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ with .Summary }}<p class="b-excerpt">{{ . }}</p>{{ end }}
+      <div class="b-meta">
+        <span class="b-meta-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+        {{ with .ReadingTime }}
+          <span class="b-meta-sep">·</span>
+          <span class="b-meta-rt">{{ . }} min</span>
+        {{ end }}
+        {{ range .Params.tags }}
+          <span class="b-meta-sep">·</span>
+          <a href="/tags/{{ . | urlize }}/" class="b-tag">{{ . }}</a>
+        {{ end }}
+      </div>
+    </article>
+
+  {{ else if eq .Type "links" }}
+    <div class="b-link">
+      <p class="b-link-title">
+        <a href="{{ with .Params.link }}{{ . }}{{ else }}{{ $.RelPermalink }}{{ end }}"
+           {{ with .Params.link }}target="_blank" rel="noopener"{{ end }}>{{ .Title }}</a>
+      </p>
+      {{ with .Summary }}<p class="b-link-desc">{{ . }}</p>{{ end }}
+      <div class="b-meta">
+        <span class="b-meta-date">{{ .Date.Format "Jan 2" }}</span>
+        {{ range .Params.tags }}
+          <span class="b-meta-sep">·</span>
+          <a href="/tags/{{ . | urlize }}/" class="b-tag">{{ . }}</a>
+        {{ end }}
+      </div>
+    </div>
+
+  {{ else if eq .Type "quotes" }}
+    <div class="b-quote-wrap">
+      <blockquote class="b-quote">
+        <p>{{ .Params.quote | markdownify }}</p>
+        {{ with .Params.attribution }}<cite>— {{ . }}</cite>{{ end }}
+      </blockquote>
+      <div class="b-meta" style="margin-top:0.6rem">
+        <span class="b-meta-date">{{ .Date.Format "Jan 2" }}</span>
+        {{ range .Params.tags }}
+          <span class="b-meta-sep">·</span>
+          <a href="/tags/{{ . | urlize }}/" class="b-tag">{{ . }}</a>
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+
+{{ end }}
+
+<p style="margin-top:1.5rem">
+  <a href="/tags/" class="tags-back-link">← all topics</a>
+</p>
+
+{{ end }}

@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<div class="b-date-wrap" style="margin-top:0.5rem">
+  <span class="b-date">All topics</span>
+  <div class="b-date-rule"></div>
+</div>
+
+<div class="tags-page-cloud">
+  {{ range .Data.Terms.ByCount }}
+    <a href="{{ .Page.RelPermalink }}" class="tags-page-tag">
+      {{ .Page.Title }}<span class="tags-page-count">{{ .Count }}</span>
+    </a>
+  {{ end }}
+</div>
+
+{{ end }}

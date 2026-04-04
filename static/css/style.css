@@ -1,0 +1,699 @@
+/* ─────────────────────────────────────────
+   Fonts
+   ───────────────────────────────────────── */
+/* Playfair Display + Playfair Display SC loaded via <link> in baseof.html */
+
+/* ─────────────────────────────────────────
+   Reset
+   ───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+img { max-width: 100%; display: block; }
+
+/* ─────────────────────────────────────────
+   Color tokens — light mode (default)
+   ───────────────────────────────────────── */
+body.light {
+  --blue:        #2B3FBE;
+  --blue-link:   #2B3FBE;
+  --bb:          #4D0135;
+  --green:       #0D3B1F;
+  --tan:         #8B4513;
+  --tan-bg:      #f5ede4;
+  --tan-border:  #d8c8b8;
+  --cherry:      #9B1B30;
+
+  --bg:          #faf8f4;
+  --border:      #ddd8d0;
+  --border-soft: #ede8e0;
+  --text-main:   #1e1a16;
+  --text-body:   #4a4540;
+  --text-meta:   #a09890;
+  --text-nav:    #6b6560;
+
+  background: var(--bg);
+  color: var(--text-main);
+}
+
+/* ─────────────────────────────────────────
+   Color tokens — dark mode
+   ───────────────────────────────────────── */
+body.dark {
+  --blue:        #7B8FE8;
+  --blue-link:   #7B8FE8;
+  --bb:          #C07ACD;
+  --green:       #2a7a42;
+  --tan:         #C47840;
+  --tan-bg:      #2a1a0e;
+  --tan-border:  #4a2e18;
+  --cherry:      #E8334A;
+
+  --bg:          #141210;
+  --border:      #2e2a26;
+  --border-soft: #252220;
+  --text-main:   #d6d0c8;
+  --text-body:   #8a8278;
+  --text-meta:   #5a5450;
+  --text-nav:    #857f78;
+
+  background: var(--bg);
+  color: var(--text-main);
+}
+
+/* ─────────────────────────────────────────
+   Layout
+   ───────────────────────────────────────── */
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* ─────────────────────────────────────────
+   Header
+   ───────────────────────────────────────── */
+.b-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.b-nav {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.b-nav a {
+  font-size: 13px;
+  text-decoration: none;
+  font-family: sans-serif;
+  color: var(--text-nav);
+}
+
+.b-nav a:hover { color: var(--blue); }
+
+/* ─────────────────────────────────────────
+   Dark/light toggle button
+   ───────────────────────────────────────── */
+.toggle-btn {
+  font-size: 12px;
+  cursor: pointer;
+  padding: 3px 10px;
+  border-radius: 3px;
+  border: 1px solid var(--tan-border);
+  background: var(--tan-bg);
+  color: var(--tan);
+  font-family: sans-serif;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+.toggle-btn:hover { background: var(--tan); color: #fff; }
+body.dark .toggle-btn:hover { color: #1a0e04; }
+
+/* ─────────────────────────────────────────
+   Filter bar
+   ───────────────────────────────────────── */
+.filter-bar {
+  padding: 0.6rem 0 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.5rem;
+}
+
+.filter-main-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Topic pills */
+.pills-wrap {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.pill {
+  font-size: 11px;
+  font-family: sans-serif;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 10px;
+  border: 1px solid var(--tan-border);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  user-select: none;
+  white-space: nowrap;
+  color: var(--tan);
+  background: var(--tan-bg);
+}
+
+.pill.active {
+  background: var(--tan);
+  color: #fff;
+  border-color: var(--tan);
+}
+body.dark .pill.active { color: #1a0e04; }
+
+/* More tags link */
+.tags-more {
+  font-size: 11px;
+  font-family: sans-serif;
+  font-weight: 500;
+  color: var(--blue);
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+.tags-more:hover { text-decoration: underline; }
+
+/* Date cluster — right aligned */
+.date-cluster {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.date-select {
+  font-size: 11px;
+  font-family: sans-serif;
+  padding: 3px 5px;
+  border-radius: 3px;
+  border: 1px solid var(--tan-border);
+  background: var(--bg);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  color: var(--tan);
+  max-width: 88px;
+}
+
+.date-arrow {
+  font-size: 11px;
+  color: var(--tan);
+  opacity: 0.6;
+}
+
+/* Clear filters + result count row */
+.filter-sub-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 0.5rem;
+}
+
+.clear-btn {
+  font-size: 11px;
+  font-family: sans-serif;
+  font-weight: 500;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--cherry);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 0;
+  background-image: linear-gradient(var(--cherry), var(--cherry));
+  background-repeat: no-repeat;
+  background-size: 100% 0px;
+  background-position: 0 100%;
+  transition: background-size 0.15s, color 0.15s, padding 0.1s;
+}
+.clear-btn:hover {
+  background-size: 100% 100%;
+  color: #fff;
+  text-decoration: none;
+  padding: 0 3px;
+  border-radius: 2px;
+}
+
+.result-count {
+  font-family: 'Playfair Display SC', Georgia, serif;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--tan);
+  opacity: 0.7;
+  margin-left: auto;
+}
+
+/* ─────────────────────────────────────────
+   Tags overlay
+   ───────────────────────────────────────── */
+.tags-overlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--bg);
+  padding: 1.5rem;
+  border-bottom: 2px solid var(--tan);
+  z-index: 10;
+}
+.tags-overlay.open { display: block; }
+
+.tags-overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.tags-overlay-title {
+  font-family: 'Playfair Display SC', Georgia, serif;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--tan);
+}
+
+.tags-close {
+  font-size: 12px;
+  font-family: sans-serif;
+  color: var(--text-meta);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.tags-cloud { line-height: 2.4; }
+.tags-cloud a {
+  font-size: 12px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: var(--blue);
+  margin-right: 0.5rem;
+  white-space: nowrap;
+}
+.tags-cloud a:hover { text-decoration: underline; }
+.tags-cloud .tag-count {
+  font-size: 10px;
+  color: var(--text-meta);
+  margin-left: 2px;
+}
+
+/* ─────────────────────────────────────────
+   Date section headings
+   ───────────────────────────────────────── */
+.b-date-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 1.75rem 0 0.6rem;
+}
+
+.b-date {
+  font-family: 'Playfair Display SC', Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  color: var(--tan);
+  opacity: 0.85;
+}
+
+.b-date-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─────────────────────────────────────────
+   Feed entries — posts
+   ───────────────────────────────────────── */
+.b-entry {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.b-entry.hidden { display: none; }
+
+.b-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+}
+
+.b-title a {
+  text-decoration: none;
+  color: var(--blue);
+  transition: opacity 0.15s;
+}
+.b-title a:hover   { opacity: 0.75; }
+.b-title a:visited { color: var(--bb); }
+
+.b-excerpt {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 0.6rem;
+  font-family: sans-serif;
+  color: var(--text-body);
+}
+
+/* ─────────────────────────────────────────
+   Feed entries — links
+   ───────────────────────────────────────── */
+.b-link {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.b-link.hidden { display: none; }
+
+.b-link-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 3px;
+  font-family: sans-serif;
+}
+.b-link-title a {
+  text-decoration: none;
+  color: var(--blue);
+}
+.b-link-title a:hover   { text-decoration: underline; }
+.b-link-title a:visited { color: var(--bb); }
+
+.b-link-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  margin-bottom: 5px;
+  font-family: sans-serif;
+  color: var(--text-nav);
+}
+
+/* ─────────────────────────────────────────
+   Feed entries — quotes
+   ───────────────────────────────────────── */
+.b-quote-wrap {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border-soft);
+}
+.b-quote-wrap.hidden { display: none; }
+
+.b-quote {
+  padding-left: 1rem;
+  border-left: 2.5px solid var(--border);
+}
+
+.b-quote p {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+
+.b-quote cite {
+  font-size: 12px;
+  font-family: sans-serif;
+  color: var(--text-meta);
+}
+
+/* ─────────────────────────────────────────
+   Meta row (dates, read time, tags)
+   ───────────────────────────────────────── */
+.b-meta {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: sans-serif;
+}
+
+.b-meta-date {
+  font-family: 'Playfair Display SC', Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-meta);
+}
+
+.b-meta-sep {
+  font-size: 11px;
+  color: var(--border);
+}
+
+.b-meta-rt {
+  font-size: 12px;
+  color: var(--text-meta);
+}
+
+.b-tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 3px;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: sans-serif;
+  background: var(--tan-bg);
+  color: var(--tan);
+}
+
+/* ─────────────────────────────────────────
+   Empty state
+   ───────────────────────────────────────── */
+.empty-state {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  padding: 2rem 0;
+  color: var(--text-meta);
+  display: none;
+}
+
+/* ─────────────────────────────────────────
+   Tags page (taxonomy list)
+   ───────────────────────────────────────── */
+.tags-page-cloud {
+  line-height: 2.6;
+  margin-top: 0.5rem;
+}
+
+.tags-page-tag {
+  font-size: 13px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: var(--blue);
+  margin-right: 0.75rem;
+  white-space: nowrap;
+}
+.tags-page-tag:hover { text-decoration: underline; }
+.tags-page-tag:visited { color: var(--bb); }
+
+.tags-page-count {
+  font-size: 11px;
+  color: var(--text-meta);
+  margin-left: 3px;
+}
+
+.tag-page-count-label {
+  font-family: 'Playfair Display SC', Georgia, serif;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--text-meta);
+  margin: 0.5rem 0 0;
+}
+
+/* ─────────────────────────────────────────
+   Single post page
+   ───────────────────────────────────────── */
+.post-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.post-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.post-meta { margin-top: 0.5rem; }
+
+/* Post body typography */
+.post-body {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-body);
+}
+
+.post-body h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+  color: var(--text-main);
+}
+
+.post-body h3 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--text-main);
+}
+
+.post-body p { margin-bottom: 1.25rem; }
+
+.post-body a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.post-body a:visited { color: var(--bb); }
+
+.post-body strong { font-weight: 700; }
+.post-body em { font-style: italic; }
+
+.post-body blockquote {
+  padding-left: 1rem;
+  border-left: 2.5px solid var(--border);
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--text-body);
+}
+
+.post-body code {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  background: var(--tan-bg);
+  color: var(--tan);
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.post-body pre {
+  background: var(--tan-bg);
+  border: 1px solid var(--tan-border);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.post-body pre code {
+  background: none;
+  padding: 0;
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.post-body ul, .post-body ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.post-body li { margin-bottom: 0.4rem; }
+
+.post-body img {
+  max-width: 100%;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+}
+
+/* Post nav (prev / next) */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.post-nav-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  max-width: 48%;
+}
+
+.post-nav-link:nth-child(2) { text-align: right; }
+
+.post-nav-label {
+  font-size: 11px;
+  font-family: 'Playfair Display SC', Georgia, serif;
+  letter-spacing: 0.06em;
+  color: var(--text-meta);
+  margin-bottom: 4px;
+}
+
+.post-nav-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 14px;
+  color: var(--blue);
+}
+.post-nav-title:hover { opacity: 0.75; }
+
+/* ─────────────────────────────────────────
+   Footer
+   ───────────────────────────────────────── */
+.b-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.b-footer-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.4rem;
+}
+
+.b-creds {
+  font-size: 13px;
+  line-height: 1.9;
+  font-family: sans-serif;
+  color: var(--cherry);
+}
+.b-creds span { display: block; }
+
+.footer-links { margin-top: 0; }
+
+.ext-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 1rem;
+  font-size: 13px;
+  font-family: sans-serif;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 5px;
+  border: 1.5px solid var(--cherry);
+  color: var(--cherry);
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.ext-btn:hover { background: var(--cherry); color: #fff; }
+.ext-btn + .ext-btn { margin-left: 8px; }
+
+/* ─────────────────────────────────────────
+   Utility
+   ───────────────────────────────────────── */
+.outer { position: relative; }
+
+/* Relative container needed for the tags overlay absolute positioning */

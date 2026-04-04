@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+<article class="single-post">
+
+  <header class="post-header">
+    <div class="b-date-wrap" style="margin-top:0.5rem">
+      <span class="b-date">{{ .Date.Format "January 2006" }}</span>
+      <div class="b-date-rule"></div>
+    </div>
+    <h1 class="post-title">{{ .Title }}</h1>
+    <div class="b-meta post-meta">
+      <span class="b-meta-date">{{ .Date.Format "January 2, 2006" }}</span>
+      {{ with .ReadingTime }}
+        <span class="b-meta-sep">·</span>
+        <span class="b-meta-rt">{{ . }} min read</span>
+      {{ end }}
+      {{ range .Params.tags }}
+        <span class="b-meta-sep">·</span>
+        <a href="/tags/{{ . | urlize }}/" class="b-tag">{{ . }}</a>
+      {{ end }}
+    </div>
+  </header>
+
+  <div class="post-body">
+    {{ .Content }}
+  </div>
+
+  <nav class="post-nav">
+    {{ with .PrevInSection }}
+      <a href="{{ .RelPermalink }}" class="post-nav-link post-nav-prev">
+        <span class="post-nav-label">← previous</span>
+        <span class="post-nav-title">{{ .Title }}</span>
+      </a>
+    {{ end }}
+    {{ with .NextInSection }}
+      <a href="{{ .RelPermalink }}" class="post-nav-link post-nav-next">
+        <span class="post-nav-label">next →</span>
+        <span class="post-nav-title">{{ .Title }}</span>
+      </a>
+    {{ end }}
+  </nav>
+
+</article>
+
+{{ end }}

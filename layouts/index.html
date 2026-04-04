@@ -1,0 +1,165 @@
+{{ define "main" }}
+
+{{ $allPages := where .Site.RegularPages "Type" "in" (slice "posts" "links" "quotes" "notes") }}
+
+{{ $yearMonths := slice }}
+{{ range $allPages }}
+  {{ $ym := .Date.Format "200601" }}
+  {{ if not (in $yearMonths $ym) }}
+    {{ $yearMonths = $yearMonths | append $ym }}
+  {{ end }}
+{{ end }}
+{{ $yearMonths = sort $yearMonths }}
+
+{{ $allTags := slice }}
+{{ range $allPages }}
+  {{ range .Params.tags }}
+    {{ if not (in $allTags .) }}
+      {{ $allTags = $allTags | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $allTags = sort $allTags }}
+
+{{ $months := slice "" "Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec" }}
+
+<!-- TAGS OVERLAY -->
+<div class="tags-overlay" id="tags-overlay">
+  <div class="tags-overlay-header">
+    <span class="tags-overlay-title">All topics</span>
+    <button class="tags-close" onclick="closeTagsOverlay()">close ✕</button>
+  </div>
+  <div class="tags-cloud">
+    {{ range .Site.Taxonomies.tags.ByCount }}
+      <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}<span class="tag-count">{{ .Count }}</span></a>
+    {{ end }}
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filter-main-row">
+
+    <div class="pills-wrap">
+      <span class="pill active" data-tag="all" onclick="toggleTag(this)">all</span>
+      {{ range $i, $tag := $allTags }}
+        {{ if lt $i 6 }}
+          <span class="pill" data-tag="{{ $tag }}" onclick="toggleTag(this)">{{ $tag }}</span>
+        {{ end }}
+      {{ end }}
+      {{ if gt (len $allTags) 6 }}
+        <a href="#" class="tags-more" onclick="openTagsOverlay(event)">···</a>
+      {{ end }}
+    </div>
+
+    <div class="date-cluster">
+      <select class="date-select" id="sel-from" onchange="applyFilters()">
+        <option value="">from</option>
+        {{ range $yearMonths }}
+          {{ $y := substr . 0 4 }}
+          {{ $m := int (substr . 4 2) }}
+          {{ $label := printf "%s %s" (index $months $m) $y }}
+          <option value="{{ . }}">{{ $label }}</option>
+        {{ end }}
+      </select>
+      <span class="date-arrow">→</span>
+      <select class="date-select" id="sel-to" onchange="applyFilters()">
+        <option value="">to</option>
+        {{ $last := index $yearMonths (sub (len $yearMonths) 1) }}
+        {{ range $yearMonths }}
+          {{ $y := substr . 0 4 }}
+          {{ $m := int (substr . 4 2) }}
+          {{ $label := printf "%s %s" (index $months $m) $y }}
+          <option value="{{ . }}"{{ if eq . $last }} selected{{ end }}>{{ $label }}</option>
+        {{ end }}
+      </select>
+    </div>
+
+  </div>
+  <div class="filter-sub-row">
+    <button class="clear-btn" onclick="clearFilters()">clear filters</button>
+    <span class="result-count" id="result-count"></span>
+  </div>
+</div>
+
+<!-- CONTENT FEED -->
+<div id="feed">
+  {{ $prevMonth := "" }}
+  {{ range $allPages.ByDate.Reverse }}
+    {{ $thisMonth := .Date.Format "January 2006" }}
+    {{ $ym        := .Date.Format "200601" }}
+    {{ $tags      := delimit .Params.tags " " }}
+
+    {{ if ne $thisMonth $prevMonth }}
+      <div class="b-date-wrap">
+        <span class="b-date">{{ $thisMonth }}</span>
+        <div class="b-date-rule"></div>
+      </div>
+      {{ $prevMonth = $thisMonth }}
+    {{ end }}
+
+    {{ if eq .Type "posts" }}
+      <article class="b-entry" data-tags="{{ $tags }}" data-ym="{{ $ym }}">
+        <h2 class="b-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </h2>
+        {{ with .Summary }}
+          <p class="b-excerpt">{{ . }}</p>
+        {{ end }}
+        <div class="b-meta">
+          <span class="b-meta-date">{{ .Date.Format "Jan 2, 2006" }}</span>
+          {{ with .ReadingTime }}
+            <span class="b-meta-sep">·</span>
+            <span class="b-meta-rt">{{ . }} min</span>
+          {{ end }}
+          {{ range .Params.tags }}
+            <span class="b-meta-sep">·</span>
+            <a href="/tags/{{ . | urlize }}/" class="b-tag">{{ . }}</a>
+          {{ end }}
+        </div>
+      </article>
+
+    {{ else if eq .Type "links" }}
+      <div class="b-link" data-tags="{{ $tags }}" data-ym="{{ $ym }}">
+        <p class="b-link-title">
+          <a href="{{ with .Params.link }}{{ . }}{{ else }}{{ $.RelPermalink }}{{ end }}"
+             {{ with .Params.link }}target="_blank" rel="noopener"{{ end }}>
+            {{ .Title }}
+          </a>
+        </p>
+        {{ with .Summary }}
+          <p class="b-link-desc">{{ . }}</p>
+        {{ end }}
+        <div class="b-meta">
+          <span class="b-meta-date">{{ .Date.Format "Jan 2" }}</span>
+          {{ range .Params.tags }}
+            <span class="b-meta-sep">·</span>
+            <a href="/tags/{{ . | urlize }}/" class="b-tag">{{ . }}</a>
+          {{ end }}
+        </div>
+      </div>
+
+    {{ else if eq .Type "quotes" }}
+      <div class="b-quote-wrap" data-tags="{{ $tags }}" data-ym="{{ $ym }}">
+        <blockquote class="b-quote">
+          <p>{{ .Params.quote | markdownify }}</p>
+          {{ with .Params.attribution }}
+            <cite>— {{ . }}</cite>
+          {{ end }}
+        </blockquote>
+        <div class="b-meta" style="margin-top:0.6rem">
+          <span class="b-meta-date">{{ .Date.Format "Jan 2" }}</span>
+          {{ range .Params.tags }}
+            <span class="b-meta-sep">·</span>
+            <a href="/tags/{{ . | urlize }}/" class="b-tag">{{ . }}</a>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+
+  {{ end }}
+</div>
+
+<div class="empty-state" id="empty-state">No entries match these filters.</div>
+
+{{ end }}

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kinshuk Kaura</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Kinshuk Kaura</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Apr 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;Write something about yourself here.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Notes</title>
+      <link>http://localhost:1313/notes/</link>
+      <pubDate>Sat, 04 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/notes/</guid>
+      <description>&lt;p&gt;Shorter notes and working thoughts go here.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The modern NLP landscape: a primer</title>
+      <link>http://localhost:1313/posts/2026/04/the-modern-nlp-landscape-a-primer/</link>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2026/04/the-modern-nlp-landscape-a-primer/</guid>
+      <description>From TF-IDF to fine-tuned transformers — a structured overview of what the compute tiers look like today, and when to reach for each one.</description>
+    </item>
+    <item>
+      <title>SetFit: few-shot learning without GPT-3</title>
+      <link>http://localhost:1313/links/setfit/</link>
+      <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/links/setfit/</guid>
+      <description>Fine-tune a sentence transformer on as few as 8 examples per class. Surprisingly competitive with large prompt-based models at a fraction of the cost.</description>
+    </item>
+    <item>
+      <title>Karpathy on running models locally</title>
+      <link>http://localhost:1313/quotes/karpathy-local-models/</link>
+      <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/quotes/karpathy-local-models/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

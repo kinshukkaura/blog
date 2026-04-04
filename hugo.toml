@@ -1,0 +1,37 @@
+baseURL = "https://kinshukkaura.github.io/blog/"
+languageCode = "en-us"
+title = "Kinshuk Kaura"
+
+[pagination]
+  pagerSize = 20
+
+[permalinks]
+  posts = "/posts/:year/:month/:slug/"
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+  author      = "Kinshuk Kaura"
+  description = "Data Scientist"
+  credentials = [
+    "Data Scientist",
+    "MSc Data Science, LSE",
+  ]
+
+  [[params.social]]
+    name = "LinkedIn"
+    url  = "https://linkedin.com/in/kinshuk31"
+  [[params.social]]
+    name = "GitHub"
+    url  = "https://github.com/kinshukkaura"
+
+  [[params.nav]]
+    name = "writing"
+    url  = "/posts/"
+  [[params.nav]]
+    name = "notes"
+    url  = "/notes/"
+  [[params.nav]]
+    name = "about"
+    url  = "/about/"
