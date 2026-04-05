@@ -2,49 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://kinshukkaura.github.io/blog/about/</loc>
     <lastmod>2026-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://kinshukkaura.github.io/blog/</loc>
     <lastmod>2026-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/notes/</loc>
+    <loc>https://kinshukkaura.github.io/blog/notes/</loc>
     <lastmod>2026-04-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/ml/</loc>
+    <loc>https://kinshukkaura.github.io/blog/tags/ml/</loc>
     <lastmod>2026-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/nlp/</loc>
+    <loc>https://kinshukkaura.github.io/blog/tags/nlp/</loc>
     <lastmod>2026-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://kinshukkaura.github.io/blog/posts/</loc>
     <lastmod>2026-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://kinshukkaura.github.io/blog/tags/</loc>
     <lastmod>2026-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/2026/04/the-modern-nlp-landscape-a-primer/</loc>
+    <loc>https://kinshukkaura.github.io/blog/posts/2026/04/the-modern-nlp-landscape-a-primer/</loc>
     <lastmod>2026-04-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/huggingface/</loc>
+    <loc>https://kinshukkaura.github.io/blog/tags/huggingface/</loc>
     <lastmod>2026-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/links/</loc>
+    <loc>https://kinshukkaura.github.io/blog/links/</loc>
     <lastmod>2026-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/research-papers/</loc>
+    <loc>https://kinshukkaura.github.io/blog/tags/research-papers/</loc>
     <lastmod>2026-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/links/setfit/</loc>
+    <loc>https://kinshukkaura.github.io/blog/links/setfit/</loc>
     <lastmod>2026-03-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/quotes/karpathy-local-models/</loc>
+    <loc>https://kinshukkaura.github.io/blog/quotes/karpathy-local-models/</loc>
     <lastmod>2026-03-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/llm/</loc>
+    <loc>https://kinshukkaura.github.io/blog/tags/llm/</loc>
     <lastmod>2026-03-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/quotes/</loc>
+    <loc>https://kinshukkaura.github.io/blog/quotes/</loc>
     <lastmod>2026-03-14T00:00:00+00:00</lastmod>
   </url>
 </urlset>

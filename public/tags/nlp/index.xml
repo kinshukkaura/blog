@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nlp on Kinshuk Kaura</title>
-    <link>http://localhost:1313/tags/nlp/</link>
+    <link>https://kinshukkaura.github.io/blog/tags/nlp/</link>
     <description>Recent content in Nlp on Kinshuk Kaura</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 Apr 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://kinshukkaura.github.io/blog/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The modern NLP landscape: a primer</title>
-      <link>http://localhost:1313/posts/2026/04/the-modern-nlp-landscape-a-primer/</link>
+      <link>https://kinshukkaura.github.io/blog/posts/2026/04/the-modern-nlp-landscape-a-primer/</link>
       <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2026/04/the-modern-nlp-landscape-a-primer/</guid>
+      <guid>https://kinshukkaura.github.io/blog/posts/2026/04/the-modern-nlp-landscape-a-primer/</guid>
       <description>From TF-IDF to fine-tuned transformers — a structured overview of what the compute tiers look like today, and when to reach for each one.</description>
     </item>
     <item>
       <title>SetFit: few-shot learning without GPT-3</title>
-      <link>http://localhost:1313/links/setfit/</link>
+      <link>https://kinshukkaura.github.io/blog/links/setfit/</link>
       <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/links/setfit/</guid>
+      <guid>https://kinshukkaura.github.io/blog/links/setfit/</guid>
       <description>Fine-tune a sentence transformer on as few as 8 examples per class. Surprisingly competitive with large prompt-based models at a fraction of the cost.</description>
     </item>
   </channel>

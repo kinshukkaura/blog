@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Quotes on Kinshuk Kaura</title>
-    <link>http://localhost:1313/quotes/</link>
+    <link>https://kinshukkaura.github.io/blog/quotes/</link>
     <description>Recent content in Quotes on Kinshuk Kaura</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 14 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/quotes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://kinshukkaura.github.io/blog/quotes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Karpathy on running models locally</title>
-      <link>http://localhost:1313/quotes/karpathy-local-models/</link>
+      <link>https://kinshukkaura.github.io/blog/quotes/karpathy-local-models/</link>
       <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/quotes/karpathy-local-models/</guid>
+      <guid>https://kinshukkaura.github.io/blog/quotes/karpathy-local-models/</guid>
       <description></description>
     </item>
   </channel>

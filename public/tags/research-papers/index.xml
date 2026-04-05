@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Research-Papers on Kinshuk Kaura</title>
-    <link>http://localhost:1313/tags/research-papers/</link>
+    <link>https://kinshukkaura.github.io/blog/tags/research-papers/</link>
     <description>Recent content in Research-Papers on Kinshuk Kaura</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 22 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/research-papers/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://kinshukkaura.github.io/blog/tags/research-papers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SetFit: few-shot learning without GPT-3</title>
-      <link>http://localhost:1313/links/setfit/</link>
+      <link>https://kinshukkaura.github.io/blog/links/setfit/</link>
       <pubDate>Sun, 22 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/links/setfit/</guid>
+      <guid>https://kinshukkaura.github.io/blog/links/setfit/</guid>
       <description>Fine-tune a sentence transformer on as few as 8 examples per class. Surprisingly competitive with large prompt-based models at a fraction of the cost.</description>
     </item>
   </channel>

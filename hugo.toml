@@ -28,10 +28,10 @@ title = "Kinshuk Kaura"
 
   [[params.nav]]
     name = "writing"
-    url  = "/posts/"
+    url  = "posts/"
   [[params.nav]]
     name = "notes"
-    url  = "/notes/"
+    url  = "notes/"
   [[params.nav]]
     name = "about"
-    url  = "/about/"
+    url  = "about/"
