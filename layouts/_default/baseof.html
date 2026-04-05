@@ -18,7 +18,7 @@
       <a href="{{ "/" | relURL }}" class="site-name">{{ .Site.Title }}</a>
       <nav class="b-nav">
         {{ range .Site.Params.nav }}
-          <a href="{{ .url }}">{{ .name }}</a>
+          <a href="{{ .url | relURL }}">{{ .name }}</a>
         {{ end }}
         <button class="toggle-btn" onclick="toggleDark()">dark mode</button>
       </nav>

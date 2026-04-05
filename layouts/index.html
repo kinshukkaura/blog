@@ -114,7 +114,7 @@
           {{ end }}
           {{ range .Params.tags }}
             <span class="b-meta-sep">·</span>
-            <a href="/tags/{{ . | urlize }}/" class="b-tag">{{ . }}</a>
+            <a href="{{ printf "/tags/%s/" (. | urlize) | relURL }}" class="b-tag">{{ . }}</a>
           {{ end }}
         </div>
       </article>
@@ -134,7 +134,7 @@
           <span class="b-meta-date">{{ .Date.Format "Jan 2" }}</span>
           {{ range .Params.tags }}
             <span class="b-meta-sep">·</span>
-            <a href="/tags/{{ . | urlize }}/" class="b-tag">{{ . }}</a>
+            <a href="{{ printf "/tags/%s/" (. | urlize) | relURL }}" class="b-tag">{{ . }}</a>
           {{ end }}
         </div>
       </div>
@@ -151,7 +151,7 @@
           <span class="b-meta-date">{{ .Date.Format "Jan 2" }}</span>
           {{ range .Params.tags }}
             <span class="b-meta-sep">·</span>
-            <a href="/tags/{{ . | urlize }}/" class="b-tag">{{ . }}</a>
+            <a href="{{ printf "/tags/%s/" (. | urlize) | relURL }}" class="b-tag">{{ . }}</a>
           {{ end }}
         </div>
       </div>
