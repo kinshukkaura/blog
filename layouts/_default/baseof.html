@@ -15,7 +15,7 @@
   <div class="wrap">
 
     <header class="b-header">
-      <a href="{{ "/" | relURL }}" class="site-name">{{ .Site.Title }}</a>
+      <a href="{{ "" | relURL }}" class="site-name">{{ .Site.Title }}</a>
       <nav class="b-nav">
         {{ range .Site.Params.nav }}
           <a href="{{ .url | relURL }}">{{ .name }}</a>
